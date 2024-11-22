@@ -1,5 +1,6 @@
-from catalogo import *
-# Menú General
+from catalogo import catalogo, agregar_producto
+from ventas import realizar_venta, contador_ventas
+
 def menu_principal():
     while True:
         print("\n--- Menú Principal ---")
@@ -8,7 +9,7 @@ def menu_principal():
         print("3. Agregar nuevo producto")
         print("4. Salir")
         opcion = input("Seleccione una opción: ")
-# al usuario seleccionar la opcion 1 se ejecutara el proceso de mostrar el catalogo
+
         if opcion == "1":
             print("\n--- Catálogo de Productos ---")
             for categoria, productos in catalogo.items():
@@ -19,8 +20,7 @@ def menu_principal():
             realizar_venta(catalogo)
         elif opcion == "3":
             print("\n--- Agregar Nuevo Producto ---")
-            categoria = input("Ingrese la categoría del producto: ")
-            categoria = categoria.title()
+            categoria = input("Ingrese la categoría del producto: ").title()
             codigo = input("Ingrese el código del producto: ")
             nombre = input("Ingrese el nombre del producto: ")
             precio = float(input("Ingrese el precio del producto: "))
@@ -29,8 +29,8 @@ def menu_principal():
             print("Gracias por usar el sistema de facturación. ¡Hasta luego!")
             break
         else:
-            print("Opción inválida. Por favor, ingrese un valor numerico.")
+            print("Opción inválida. Por favor, intente de nuevo.")
 
-# Ejecución del programa
+# Ejecutar el menú principal
 if __name__ == "__main__":
     menu_principal()
